@@ -1,0 +1,62 @@
+// https://github.com/zeit/next.js/blob/canary/examples/with-ant-design-less/next.config.js
+// https://github.com/zeit/next.js/blob/canary/examples/with-styled-components/pages/_document.js
+
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./src/components",
+          "@api": "./src/api",
+          "@models": "./src/models",
+          "@connectors": "./src/connectors",
+          "@screens": "./src/screens",
+          "@hooks": "./src/hooks",
+          "@services": "./src/services",
+          "@validation": "./src/validation",
+          "@constants": "./src/constants",
+          "@context": "./src/context",
+          "@queries": "./src/queries",
+          "@data": "./src/data",
+          "@typeDefs": "./src/types",
+          "@generated": "./src/generated"
+        }
+      }
+    ],
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
+    ],
+    [
+      "inline-import",
+      {
+        "extensions": [".css"]
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ],
+    "babel-plugin-transform-typescript-metadata",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
+}
